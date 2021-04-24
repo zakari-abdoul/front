@@ -1,0 +1,269 @@
+	<div class="container-fluid">
+		<section class="mini" id="work-process">
+			<div class="mini-content">
+				<div class="container">
+					<div class="row">
+						<div class="offset-lg-3 col-lg-6">
+							<div class="info">
+								<h1>Nombre de tentatives</h1>
+								<p>Statiques du nombre de tentatives effecutées pendant ce mois.</p>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<a href="#" class="mini-box" id="ag1">
+								<i><img src="./assets/img/work-process-item-03.png" alt=""></i>
+								<strong>Totals</strong>
+								<span id="total">0</span>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<a href="#" class="mini-box" id="ag2">
+								<i><img src="./assets/img/work-process-item-03.png" alt=""></i>
+								<strong>Entrants</strong>
+								<span id="totalE">0</span>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<a href="#" class="mini-box" id="ag3">
+								<i><img src="./assets/img/work-process-item-03.png" alt=""></i>
+								<strong>Sortants</strong>
+								<span id="totalS">0</span>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<a href="#" class="mini-box" id="ag4">
+								<i><img src="./assets/img/work-process-item-03.png" alt=""></i>
+								<strong>Echouées</strong>
+								<span id="totalE">0</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mini" id="work-process">
+			<div class="mini-content">
+				<div class="container">
+					<div class="row">
+						<div class="offset-lg-3 col-lg-6">
+							<div class="info">
+								<h1>SAI</h1>
+								<p>Statiques de l'evolution de de tentatives SAI effecutées pendant ce mois.</p>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-6 col-12">
+							<canvas class="py-4" id="myChart"></canvas>
+							<canvas class="py-4" id="myLine"></canvas>
+							<button type="button" id="saibtn" class="btn btn-outline-danger btn-sm">SAI</button>
+							<button type="button" id="lubtn" class="btn btn-outline-info btn-sm">LU</button>
+							<button type="button" id="bearerbtn" class="btn btn-outline-warning btn-sm">BEARER</button>
+							<button type="button" id="pdpbtn" class="btn btn-outline-success btn-sm">PDP</button>
+							<div class="btn-group mr-2" role="group" aria-label="First group">
+								<button type="button" class="btn btn-outline-secondary btn-sm"> ROAMING IN</button>
+								<button type="button" class="btn btn-outline-secondary btn-sm"> ROAMING OUT</button>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-12">
+							<canvas id="myDonut"  height="200"></canvas>
+							<!-- color block -->
+							<div class="col-xl-12 col-sm-6 py-2">
+								<div class="card bg-success text-white h-25">
+									<div class="card-body bg-success">
+										<div class="rotate">
+											<i class="fa fa-user fa-4x"></i>
+										</div>
+										<h6 class="text-uppercase">PDP</h6>
+										<h6 id="pdpT" class="display-6">0</h6>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12 col-sm-6 py-2">
+								<div class="card text-white bg-danger h-25">
+									<div class="card-body bg-danger">
+										<div class="rotate">
+											<i class="fa fa-list fa-4x"></i>
+										</div>
+										<h6 class="text-uppercase">SAI tentatives</h6>
+										<h6 id="saiT" class="display-6">0</h6>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12 col-sm-6 py-2">
+								<div class="card text-white bg-info h-25">
+									<div class="card-body bg-info">
+										<div class="rotate">
+											<i class="fa fa-twitter fa-4x"></i>
+										</div>
+										<h6 class="text-uppercase">LU tentatives</h6>
+										<h6 id="luT" class="display-6">0</h6>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12 col-sm-6 py-2">
+								<div class="card text-white bg-warning h-25">
+									<div class="card-body">
+										<div class="rotate">
+											<i class="fa fa-share fa-4x"></i>
+										</div>
+										<h6 class="text-uppercase">BEARER tentatives</h6>
+										<h6 id="bearerT" class="display-6">0</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mini" id="work-process">
+			<div class="mini-content">
+				<div class="container">
+					<div class="row">
+						<div class="offset-lg-3 col-lg-6">
+							<div class="info">
+								<h1>Tentatives par pays</h1>
+								<p>Statiques du nombre de tentatives effecutées pendant ce mois.</p>
+							</div>
+						</div>
+					</div>	
+					<!-- <div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+							<canvas class="py-4" id="paysBar"></canvas>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+							<canvas class="py-4" id="paysLine"></canvas>
+						</div>
+ 					</div> -->
+				</div>
+			</div>
+		</section>
+		<div>
+			<!-- Button trigger modal -->
+  
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Importation Formulaire</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form class="was-validated">
+								<div class="form-group">
+									<select class="form-control"  id="validationTooltip01" required>
+										<option value="">---- Selectionner ----</option>
+										<option value="LU">LU</option>
+										<option value="BEARER">BEARER</option>
+										<option value="SAI">SAI</option>
+									</select>
+								</div>
+							
+								<div class="custom-file">
+								<input type="file" class="custom-file-input" id="validatedCustomFile" required>
+								<label class="custom-file-label" for="validatedCustomFile">Choisir un fichier</label>
+								</div>
+								<button class="btn btn-success mt-2" type="submit">Envoyer</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+
+    <script src="./assets/js/initChart.js"></script>
+    <script src="./assets/js/chartdefinition.js"></script>
+	<script src="./assets/js/indexdata.js"></script>
+	<script>
+		
+		$('#downloadfullpage').on('click',function() {
+            //console.log(this.value)
+            let doc = new jsPDF('p','pt','a4');
+            doc.addHTML(document.body,function() {
+                doc.save('test.pdf');
+            });
+        });
+
+		$('#saibtn').on('click',function() {
+            initAttempsCourbe(labelsAttempsB, defaultData,"#F76304")
+			initAttempsLine(labelsAttempsB, defaultData,"#F76304")
+        });
+		$('#lubtn').on('click',function() {
+            initAttempsCourbe(labelsAttempsB, defaultData,"#17a2b8")
+			initAttempsLine(labelsAttempsB, defaultData,"#17a2b8")
+        });
+		$('#bearerbtn').on('click',function() {
+            initAttempsCourbe(labelsAttempsB, defaultData,"#ffc107")
+            initAttempsLine(labelsAttempsB, defaultData,"#ffc107")
+        });
+		$('#pdpbtn').on('click',function() {
+            initAttempsCourbe(labelsAttempsB, defaultData,"#28a745")
+            initAttempsLine(labelsAttempsB, defaultData,"#28a745")
+        });
+		 
+                    
+                     
+                     
+							
+		// myChart = new Chart(ctxBar, {
+		// 	type: 'bar',
+		// 	data: {
+		// 		labels: ['20', '21', '22', '23', '00', '01', '02', '03', '04', '05', '06', '07'],
+		// 		datasets: [{
+		// 			label: 'Tentative LU',
+		// 			data: defaultData,
+		// 			backgroundColor: [
+		// 				'#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8',
+		// 				'#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8',
+		// 				//'#F76304', '#F76304', '#F76304', '#F76304', '#F76304', '#F76304',
+		// 				//'#F76304', '#F76304', '#F76304', '#F76304', '#F76304', '#F76304',
+		// 				//'#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107',
+		// 				//'#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107',
+		// 			],
+		// 			borderColor: [
+		// 				'#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8',
+		// 				'#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8', '#17a2b8',
+		// 				//'#F76304', '#F76304', '#F76304', '#F76304', '#F76304', '#F76304',
+		// 				//'#F76304', '#F76304', '#F76304', '#F76304', '#F76304', '#F76304',
+		// 				//'#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107',
+		// 				//'#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107', '#ffc107',
+		// 			],
+		// 			borderWidth: 1
+		// 		}]
+		// 	},
+		// 	options: defaultOptions
+		// });
+		//diagramme bar par pays
+		
+		// var configLine = {
+		// 	type: 'line',
+		// 	data: {
+		// 		labels: ['20', '21', '22', '23', '00', '01', '02', '03', '04', '05', '06', '07'],
+		// 		datasets: [{
+		// 			label: 'Niger',
+		// 			fill: false,
+		// 			borderColor: window.chartColors.blue,
+		// 			backgroundColor: window.chartColors.blue,
+		// 			data: [
+		// 				randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), 
+		// 				randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), 
+		// 				randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),randomScalingFactor()
+		// 			]
+		// 		}]
+		// 	},
+		// 	options: defaultOptions
+		// };
+
+		// window.onload = function() {
+		 	//window.myLine = new Chart(ctxLine, config);
+		// 	paysLineChart = new Chart(paysLine, configLine);
+		// };
+	</script>

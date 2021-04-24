@@ -1,0 +1,8 @@
+{
+    "/": {
+      "target": "http://10.137.20.112:8095",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}
