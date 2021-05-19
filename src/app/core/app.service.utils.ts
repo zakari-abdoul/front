@@ -9,14 +9,17 @@ export class ServicesUtils {
     public static profil_Etudiant = "etudiant"
     public static profil_Admin = "admin"
     public static default_password = "Virtual_Impact@2020";
-    public static apiUrl = 'http://localhost:8095/';
+    // public static apiUrl = 'http://localhost:8095/';
+    public static apiUrl = 'http://3.143.233.22:8095/';
     // public static apiUrl = 'http://10.137.20.112:8095/';
     public static token = ServicesUtils.getToken();
 //'Authorization':`Bearer ${AuthService.getToken()}`,
     public static headers = new HttpHeaders({
         'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Credentials':'true',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        // 'Access-Control-Allow-Credentials':'false',
+        // 'Access-Control-Allow-Headers': 'Content-Type',
+        "Access-Control-Allow-Methods":" GET, POST, HEAD, OPTIONS, PUT, DELETE, PATCH",
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         'Access-Control-Request-Headers':'origin, x-requested-with, accept',
         'Content-Type': 'application/json',
         // tslint:disable-next-line:max-line-length`Bearer ${user.}`

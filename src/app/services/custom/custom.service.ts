@@ -32,13 +32,19 @@ export class CustomService {
     };
   }
   getStats (): Observable<Object> {
-    return this.http.get(apiUrl +'sai/attempssai/in/')
+    return this.http.get(apiUrl +'ping/')
     // return this.http.get<Object>(apiUrl +'sai/attempssai/in/',ServicesUtils.options)
-      .pipe(
-        tap(heroes => console.log('fetched Stats')),
+      .pipe(tap(heroes => console.log('fetched Stats')),
         catchError(this.handleError('getStats', []))
       );
   }
+  // getStats (): Observable<Object> {
+  //   return this.http.get(apiUrl +'sai/attempssai/in/')
+  //   // return this.http.get<Object>(apiUrl +'sai/attempssai/in/',ServicesUtils.options)
+  //     .pipe(tap(heroes => console.log('fetched Stats')),
+  //       catchError(this.handleError('getStats', []))
+  //     );
+  // }
 
   getClient(id: string): Observable<Object> {
     const url = `${apiUrl}/${id}`;
