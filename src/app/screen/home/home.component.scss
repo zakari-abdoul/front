@@ -131,3 +131,18 @@ parallax & home seperator
     margin-bottom: 5px;
     margin-top: 20px;
   }
+
+.file-input {
+  display: none;
+}
+
+.white-icon {
+
+  border-radius: 10px;
+  color: white;
+  background-color: #218838;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+    fill: white;
+}

@@ -145,7 +145,7 @@
 			<!-- Button trigger modal -->
   
 			<!-- Modal -->
-			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal fade" id="exampleModalCenter" #modal tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -155,21 +155,40 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form class="was-validated">
+							<form>
 								<div class="form-group">
-									<select class="form-control"  id="validationTooltip01" required>
-										<option value="">---- Selectionner ----</option>
-										<option value="LU">LU</option>
-										<option value="BEARER">BEARER</option>
-										<option value="SAI">SAI</option>
+									<select class="form-control" [formControl]="bound">
+										<option value="">---- Selectionner Type ----</option>
+										<option value="LU">IN</option>
+										<option value="BEARER">OUT</option>
 									</select>
 								</div>
-							
-								<div class="custom-file">
-								<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-								<label class="custom-file-label" for="validatedCustomFile">Choisir un fichier</label>
+								<div class="form-group">
+									<select class="form-control" [formControl]="opcode">
+										<option value="">----  Selectionner Code Opération  ----</option>
+										<option value="lu">LU</option>
+										<option value="bearer">BEARER</option>
+										<option value="sai">SAI</option>
+										<option value="pdp">PDP</option>
+									</select>
 								</div>
-								<button class="btn btn-success mt-2" type="submit">Envoyer</button>
+								<input type="file" class="file-input"
+									(change)="onFileSelected($event)" #fileUpload>
+
+								<div class="file-upload">
+
+								{{filename || "Aucun fichier selectionner."}}
+
+									<button mat-mini-fab color="secondary" class="upload-btn white-icon"
+									(click)="fileUpload.click()">
+										<mat-icon>attach_file</mat-icon>
+									</button>
+								</div>
+								<!-- <div class="custom-file">
+									<input type="file" [formControl]="filename" class="custom-file-input" #fileInput (change)="onFileSelected($event)" required>
+									<label class="custom-file-label" for="validatedCustomFile">Choisir un fichier</label>
+								</div> -->
+								<button  (click)="upload()" class="btn btn-success mt-2" type="submit">Envoyer</button>
 							</form>
 						</div>
 					</div>

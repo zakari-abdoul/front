@@ -32,26 +32,45 @@ export class CustomService {
     };
   }
   getStats (): Observable<Object> {
-    return this.http.get(apiUrl +'ping/')
+    return this.http.get(apiUrl +'/ping/')
     // return this.http.get<Object>(apiUrl +'sai/attempssai/in/',ServicesUtils.options)
       .pipe(tap(heroes => console.log('fetched Stats')),
         catchError(this.handleError('getStats', []))
       );
   }
-  // getStats (): Observable<Object> {
-  //   return this.http.get(apiUrl +'sai/attempssai/in/')
-  //   // return this.http.get<Object>(apiUrl +'sai/attempssai/in/',ServicesUtils.options)
-  //     .pipe(tap(heroes => console.log('fetched Stats')),
-  //       catchError(this.handleError('getStats', []))
-  //     );
-  // }
-
+  
   getClient(id: string): Observable<Object> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<Object>(url).pipe(
       tap(_ => console.log(`fetched User id=${id}`)),
       catchError(this.handleError<Object>(`getUser id=${id}`))
     );
+  }
+  getCountries(): Observable<any> {
+    const url = `https://restcountries.eu/rest/v2/all`;
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`fetched Countries`)),
+      catchError(this.handleError<any>(`Countries error`))
+    );
+  }
+  
+  personnaliseData(data,code): Observable<any> {
+    // const url = `https://restcountries.eu/rest/v2/all`; /sai/parametre/
+    const url = `${apiUrl}/${code}/parametre/`;
+    return this.http.post<any>(url,data).pipe(
+      tap(_ => console.log(`fetched data`)),
+      catchError(this.handleError<any>(`data error`))
+    );
+  }
+
+  uploadFile(formData, code): Observable<any> {
+    const url = `${apiUrl}/${code}/upload/`;
+    return this.http.post<any>(url, formData, {  
+        reportProgress: true,  
+        observe: 'events'  
+    }).pipe(
+        tap(_ => console.log(`fetched data`)),
+      catchError(this.handleError<any>(`data error`)));  
   }
 
 }

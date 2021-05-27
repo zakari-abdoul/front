@@ -3,39 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>FrontApp</title>
-  <base href="/">
+  <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-		  <a class="navbar-brand" [routerLink]="['/home']">
-			<img src="./assets/img/logo.png" alt="" width="30" height="24" class="d-inline-block align-top">
-			DIGIDEX KPI
-		  </a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-link active" [routerLink]="['/home']" aria-current="page">Home</a>
-				<a class="nav-link" [routerLink]="['/detailler']">Statistique Parametres</a>
-				<a class="nav-link" [routerLink]="['/pays']">Statistique par Pays</a>
-				
-			</div>
-			<form class="form-inline my-2 my-lg-0">
-				<button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Importer un fichier</button>
-				<button class="btn btn-outline-primary my-2 my-sm-0" type="button" id="downloadfullpage" >
-					Exporter le graph
-				 </button>
-			</form>
-		  </div>
-		</div>
-	</nav>
-  <app-root></app-root>
+<!-- "start": "ng serve --proxy-config proxy.conf.json", -->
+<body>	
+	<app-root></app-root>
 </body>
 </html>
