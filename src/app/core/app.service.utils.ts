@@ -4,11 +4,6 @@ export class ServicesUtils {
     public static user = JSON.parse(localStorage.getItem("currentUser"));
     public static  isAdmin : boolean = false;
     public static default_image : string = "assets/img/default.jpg";
-    public static classe = ["Fondamental","Secondaire","Lycee","Universite"];
-    public static profil_Enseignant = "enseignant"
-    public static profil_Etudiant = "etudiant"
-    public static profil_Admin = "admin"
-    public static default_password = "Virtual_Impact@2020";
     // public static apiUrl = 'http://127.0.0.1:8095';
     public static apiUrl = 'http://127.0.0.1:8000';
     // public static apiUrl = 'http://3.143.233.22:8095';

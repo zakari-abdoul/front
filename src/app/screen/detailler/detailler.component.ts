@@ -63,6 +63,9 @@ export class DetaillerComponent implements OnInit {
   }
 
   async getData(){
+    this.eff = []
+      this.attemps = []
+      this.datemns = []
     const start = moment(this.range.value.start).format("MMM DD, YYYY");
     const end = moment(this.range.value.end).format("MMM DD, YYYY");
     console.log("start : "+start)
@@ -74,15 +77,15 @@ export class DetaillerComponent implements OnInit {
     }
     this.paramData = {
       "roaming" : this.optradio.value, "country_operator" : this.op.value,
-      "dateDebut" : start+" 08:00","dateFin" : end+" 08:00"}
+      "dateDebut" : start,"dateFin" : end}
+      // "dateDebut" : start+" 08:00","dateFin" : end+" 08:00"}
 
     await this.customService.personnaliseData(this.paramData,this.opcode.value).subscribe(async res => {
       console.log(res)
-      console.log(res.length)
-      // if (res.length == undefined || res.length == 0) {
-      //   this.toastr.info("Effectuer une autre recherche avec d'autres paramètres")
-      //   return null;
-      // }
+      if (res.length == undefined || res.length == 0) {
+        this.toastr.info("Effectuer la recherche avec d'autres paramètres")
+        return null;
+      }
       this.eff =await ServicesUtils.getChartData(res,"EFF")
       this.attemps = await ServicesUtils.getChartData(res,"Total_Transactions")
       this.datemns = await ServicesUtils.getChartData(res,"date")
@@ -118,27 +121,26 @@ export class DetaillerComponent implements OnInit {
       this.chartRef.destroy();
     }
     this.chartRef = new Chart(this.customCanvas.nativeElement, {
-      type: 'bar',
+      type: 'line',
       data: {
           datasets: [{
-              label: 'Tentative',
+              label: 'Efficacité',
               backgroundColor: '#F76304',
-              borderColor: 'white',
-              data: attemps,
-              yAxisID: 'y1',
+              borderColor: '#F76304',
+              data: eff,
+              fill : false,
+              yAxisID: 'y',
               borderWidth: 1
           }, {
-              label: 'Efficacité',
-              data: eff,
-              backgroundColor: "#C03737",
-              borderColor: 'white',
+              label: 'Tentative',
+              data: attemps,
+              backgroundColor: "#8db7e4",
+              borderColor: '#8db7e4',
               borderWidth: 1,
-              yAxisID: 'y',
-              fill : false,
-              // Changes this dataset to become a line
-              type: 'line'
+              yAxisID: 'y1',
+              type: 'bar'
           }],
-          labels: datemns,
+          labels:  datemns,
       },
       options: {
         responsive: true,
@@ -172,6 +174,63 @@ export class DetaillerComponent implements OnInit {
         }
       }
     });
+    // this.chartRef = new Chart(this.customCanvas.nativeElement, {
+    //   type: 'bar',
+    //   data: {
+    //       datasets: [{
+    //           label: 'Tentative',
+    //           backgroundColor: '#F76304',
+    //           borderColor: 'white',
+    //           data: attemps,
+    //           yAxisID: 'y1',
+    //           borderWidth: 1
+    //       }, {
+    //           label: 'Efficacité',
+    //           data: eff,
+    //           backgroundColor: "#C03737",
+    //           borderColor: '#C03737',
+    //           // backgroundColor: 'rgb(255, 99, 132)',
+    //           // borderColor: 'rgb(255, 99, 132)',
+    //           borderWidth: 1,
+    //           yAxisID: 'y',
+    //           fill : false,
+    //           // Changes this dataset to become a line
+    //           type: 'line'
+    //       }],
+    //       labels: datemns,
+    //   },
+    //   options: {
+    //     responsive: true,
+    //     interaction: {
+    //       mode: 'index',
+    //       intersect: false,
+    //     },
+    //     plugins: {
+    //       title: {
+    //         display: true,
+    //         text: 'Chart.js Line Chart - Multi Axis'
+    //       }
+    //     },
+    //     scales: {
+    //         y: {
+    //             type:"linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+    //             display: true,
+    //             // position: 'left',
+    //             position: "left"
+    //         },
+    //         y1: {
+    //             type:"linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+    //             display: true,
+    //             position: "right",
+    
+    //             // grid line settings
+    //             grid: {
+    //                 drawOnChartArea: false, // only want the grid lines for one axis to show up
+    //             },
+    //         },
+    //     }
+    //   }
+    // });
     this.addChartProperties();
   }
 
