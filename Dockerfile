@@ -5,8 +5,10 @@ COPY package.json /app
 RUN  npm install -g n
 RUN npm install
 RUN npm audit fix
+RUN npm install -g @angular/cli
 COPY . /app
 RUN npm run build --prod
+RUN ng serve --open
 
 FROM nginx:1.17.1-alpine
 COPY --from=build-step /app/ /usr/share/nginx/html
