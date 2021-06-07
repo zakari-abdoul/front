@@ -1,8 +1,10 @@
-FROM node:10-alpine as build-step
+FROM node:12.11 as build-step
 RUN mkdir -p /app
 WORKDIR /app
 COPY package.json /app
+RUN  npm install -g n
 RUN npm install
+RUN npm audit fix
 COPY . /app
 RUN npm run build --prod
 
