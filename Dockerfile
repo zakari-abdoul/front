@@ -1,14 +1,17 @@
-FROM node:12.11 as build-step
-RUN mkdir -p /app
-WORKDIR /app
-COPY package.json /app
-RUN  npm install -g n
+FROM node:latest as build
+
+WORKDIR /usr/local/app
+
+
+COPY ./ /usr/local/app/
+
+
 RUN npm install
-RUN npm audit fix
-RUN npm install -g @angular/cli
-COPY . /app
-RUN npm run build --prod
+
+RUN npm run build
 
 
-FROM nginx:1.17.1-alpine
-COPY --from=build-step /app/ /usr/share/nginx/html
+FROM nginx:latest
+
+COPY --from=build /usr/local/app/ /usr/share/nginx/html
+EXPOSE 8080
